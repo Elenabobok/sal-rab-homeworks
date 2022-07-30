@@ -6,14 +6,11 @@ function calcShipping(sum, min, shipping) {
     // Задание №2.1. Рассчитать доставку
 
     let shippingSum;
-    if (productsSum=0) {shippingSum==0;
-                        }
-else if (productsSum>=freeShippingMinSum) {shippingSum==0;} 
-else if ((productsSum>0 & productsSum<freeShippingMinSum)) {productsSum=freeShippingMinSum}
-
-  
-
-    // Конец решения задания №2.1.
+    if (productsSum=0 || productsSum>=freeShippingMinSum) {
+        shippingSum==0;} 
+else  ((productsSum>0 & productsSum<freeShippingMinSum)) {
+         productsSum=freeShippingMinSum;}
+// Конец решения задания №2.1.
 
     return shippingSum;
 }
@@ -26,14 +23,14 @@ function calcDiscount(sum, min, discount) {
     // Задание №2.2. Рассчитать скидку
 let discountPrice;
 if (productsSum >= discountMinSum)
- {discountSum == productsSum / 100 * discountPart}
-   
- else if (productsSum > discountMinSum ) 
+ {let discountSum = productsSum >= discountMinSum ? discountPart * productsSum / 100 : 0;
+ }
+   else (productsSum > discountMinSum) 
     {discountSum == 0;
     }
     // Конец решения задания №2.2.
 
-    return discountSum;
+    return discountPrice;
 }
 
 function calcInvoice({sum, discountMinSum, discountPart, shippingFreeMinSum, shippingPrice}) {
@@ -43,24 +40,16 @@ function calcInvoice({sum, discountMinSum, discountPart, shippingFreeMinSum, shi
     // Задача №2.3. Рассчитать скидки и доставку в корзине
 
    let totalSum;
-
-   totalSum == productsSum;
+    totalSum = productsSum;
     totalSum = totalSum- discountSum;
-
+    totalSum = totalSum + shippingSum;
     let shippingSum = calcShipping(totalSum, shippingFreeMinSum, shippingPrice); // не изменяйте эту строку!!!
 
-    totalSum = totalSum + shippingSum;
-
     let freeShipping;
-     
     let shippingSum = 0;
-    let freeShipping = true; 
-
-    console.log (shippingSum!= && freeShipping === false);
-    
-   
-
-    // Конец решения задачи №2.3.
+    let freeShipping; 
+   (shippingSum == 0) ? freeShipping = true : freeShipping = false;
+   // Конец решения задачи №2.3.
 
     return {discount: discountSum, freeShipping, shipping: shippingSum, total: totalSum};
 }
