@@ -9,8 +9,8 @@ let shippingSum;
 if (productsSum = 0 || productsSum>=freeShippingMinSum) {
       shippingSum = 0;
 } 
-else ((productsSum > 0 & productsSum<freeShippingMinSum)) {
-    shippingSum=freeShippingMinSum;
+else if ((productsSum > 0) && (productsSum<freeShippingMinSum)) {
+    shippingSum= shippingPrice;
 }
 // Конец решения задания №2.1.
 
