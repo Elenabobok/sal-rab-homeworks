@@ -6,10 +6,10 @@ function calcShipping(sum, min, shipping) {
     // Задание №2.1. Рассчитать доставку
 
 let shippingSum;
-if (productsSum == 0 || productsSum>=freeShippingMinSum); {
+if (productsSum == 0 || productsSum>=freeShippingMinSum) {
       shippingSum = 0;
 } 
-else((0 < productsSum) && (productsSum < freeShippingMinSum)); {
+else ((0 < productsSum) && (productsSum < freeShippingMinSum)); {
     shippingSum = shippingPrice;
 }
 // Конец решения задания №2.1.
